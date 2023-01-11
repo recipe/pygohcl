@@ -23,4 +23,5 @@ export PATH="$(pwd)/go-${ARCH}/go/bin:$PATH"
 echo "OS=$OS"
 echo "ARCH=$ARCH"
 echo "PATH=$PATH"
+env
 
