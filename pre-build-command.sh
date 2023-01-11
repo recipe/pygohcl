@@ -14,6 +14,13 @@ case $ARCH in
     x86_64) ARCH="amd64" ;;
     aarch64) ARCH="arm64" ;;
 esac
-curl "https://storage.googleapis.com/golang/go1.13.${OS}-${ARCH}.tar.gz" --silent --location | tar -xz
 
-export PATH="$(pwd)/go/bin:$PATH"
+mkdir -p -v "$(pwd)/go-${ARCH}"
+curl "https://storage.googleapis.com/golang/go1.13.${OS}-${ARCH}.tar.gz" --silent --location | tar -xz -C "$(pwd)/go-${ARCH}"
+
+export PATH="$(pwd)/go-${ARCH}/go/bin:$PATH"
+
+echo "OS=$OS"
+echo "ARCH=$ARCH"
+echo "PATH=$PATH"
+
